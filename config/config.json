@@ -1,0 +1,18 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/spfx-build/config.2.0.schema.json",
+  "version": "2.0",
+  "bundles": {
+    "podcast-web-part": {
+      "components": [
+        {
+          "entrypoint": "./lib/webparts/podcast/PodcastWebPart.js",
+          "manifest": "./src/webparts/podcast/PodcastWebPart.manifest.json"
+        }
+      ]
+    }
+  },
+  "externals": {},
+  "localizedResources": {
+    "PodcastWebPartStrings": "lib/webparts/podcast/loc/{locale}.js"
+  }
+}

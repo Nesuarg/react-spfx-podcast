@@ -1,0 +1,48 @@
+@import '~office-ui-fabric-react/dist/sass/References.scss';
+
+.podcast {
+  .container {
+    max-width: 700px;
+    margin: 0px auto;
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 25px 50px 0 rgba(0, 0, 0, 0.1);
+  }
+
+  .row {
+    display:flex;
+    flex-direction: row;
+    background-color: $ms-color-neutralPrimary;
+    padding: 20px;
+  }
+
+  .column {
+    display:flex;
+    flex-direction: column;
+    width: 50%;
+    padding: 24px;
+  }
+
+  .title {
+    @include ms-font-xl;
+    @include ms-fontColor-white;
+  }
+
+  .subTitle {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .description {
+    @include ms-font-l;
+    @include ms-fontColor-white;
+  }
+
+  .playlist {
+    background-color: $ms-color-neutralDark
+  }
+
+  .image {
+    width: 100px;
+    height: 100px;
+  }
+
+}
