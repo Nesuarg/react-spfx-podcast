@@ -55,6 +55,7 @@ export default class Podcast extends React.Component<IPodcastProps, podcastState
               <div className={styles.column}>
                 <img className={styles.image} src={this.state.podcast.image.url}/>
                 <h1 className={styles.title}>{this.state.podcast.title}</h1>
+                {/*comment*/}
               </div>
               <div className={styles.column}>
                 {
