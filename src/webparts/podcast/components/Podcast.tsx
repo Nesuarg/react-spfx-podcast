@@ -55,10 +55,6 @@ export default class Podcast extends React.Component<IPodcastProps, podcastState
               <div className={styles.column}>
                 <img className={styles.image} src={this.state.podcast.image.url}/>
                 <h1 className={styles.title}>{this.state.podcast.title}</h1>
-                {/* <p>now playing: <strong>{this.state.activePodcast.title || ''}</strong></p>
-                <audio controls>
-                  <source src={this.state.activePodcast.enclusure['@url'] || ''}></source>
-                </audio> */}
               </div>
               <div className={styles.column}>
                 {
