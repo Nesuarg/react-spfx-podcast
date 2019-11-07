@@ -1,5 +1,7 @@
+import { IReadonlyTheme } from "@microsoft/sp-component-base";
 export interface IPodcastProps {
-  title: string,
+  themeVariant: IReadonlyTheme | undefined;
+  title: string;
   description: string;
   rssUrl: string;
 }

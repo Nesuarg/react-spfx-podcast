@@ -4,6 +4,7 @@
   "alias": "PodcastWebPart",
   "componentType": "WebPart",
 
+  "supportsThemeVariants": true,
   // The "*" signifies that the version should be taken from the package.json
   "version": "*",
   "manifestVersion": 2,
@@ -22,7 +23,7 @@
     "officeFabricIconFontName": "MusicInCollection",
     "properties": {
       "title": "Podcast webpart",
-      "description": "Podcast..",
+      "description": "Podcast webpart description",
       "rssUrl": "http://mayacast.libsyn.com/rss"
     }
   }]

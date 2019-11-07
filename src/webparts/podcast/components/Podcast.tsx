@@ -1,7 +1,7 @@
 import * as React from 'react';
 import styles from './Podcast.module.scss';
 import { IPodcastProps } from './IPodcastProps';
-import {Channel} from "../models/Channel";
+import { Channel } from "../models/Channel";
 import Item from "../models/Item";
 
 import axios from "axios";
@@ -17,10 +17,12 @@ export default class Podcast extends React.Component<IPodcastProps, podcastState
     super(props);
 
     this.state = {
-      podcast: null, activePodcast: null};
+      podcast: null, activePodcast: null
+    };
   }
 
   public componentDidMount(): void {
+    console.log(this.props);
 
     const headers = {
       'Content-Type': 'application/json',
@@ -36,32 +38,34 @@ export default class Podcast extends React.Component<IPodcastProps, podcastState
     // });
 
     let apiUrl = 'https://podcast.azure-api.net/podcast-spfx3/GetPodcastJson';
-    axios.post(apiUrl, { params: {'podUrl': this.props.rssUrl}, headers: headers}).then(response => {
+    axios.post(apiUrl, { params: { 'podUrl': this.props.rssUrl }, headers: headers }).then(response => {
       let dataArr: any = response.data;
-      if(dataArr.Status.toLowerCase() === "ok") {
+      if (dataArr.Status.toLowerCase() === "ok") {
         this.setState({ podcast: dataArr.Results.channel });
       }
     });
   }
   public render(): React.ReactElement<IPodcastProps> {
+    const { semanticColors }: IPodcastProps["themeVariant"] = this.props.themeVariant;
     if (this.state.podcast === null) {
       //loading
-      return (<div>loading</div>)
+      return (<div style={{ backgroundColor: semanticColors.bodyBackground }}>loading</div>)
     } else {
       return (
         <div className={styles.podcast}>
           <div className={styles.container}>
             <div className={styles.row}>
               <div className={styles.column}>
-                <img className={styles.image} src={this.state.podcast.image.url}/>
+                <img className={styles.image} src={this.state.podcast.image.url} />
                 <h1 className={styles.title}>{this.state.podcast.title}</h1>
+                {/*comment*/}
               </div>
               <div className={styles.column}>
                 {
                   <ul className={styles.playlist}>
-                    { 
+                    {
                       Object(this.state.podcast.item).map((item, key) => {
-                        return <li onClick={() => this.setState({activePodcast: item})} key={key}>
+                        return <li onClick={() => this.setState({ activePodcast: item })} key={key}>
                           <p>{item.title}</p>
                         </li>
                       })
